@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import FormInput from '../components/FormInput';
-import Navbar from '../components/Navbar';
-import FormButton from '../components/FormButton';
+import FormInput from '../../components/FormInput';
+import Navbar from '../../components/Navbar';
+import FormButton from '../../components/FormButton';
 import { Link } from 'react-router-dom';
 
 function Account() {

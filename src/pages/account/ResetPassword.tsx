@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import FormInput from '../components/FormInput';
-import Navbar from '../components/Navbar';
-import FormButton from '../components/FormButton';
+import Navbar from '../../components/Navbar';
+import FormInput from '../../components/FormInput';
+import FormButton from '../../components/FormButton';
 
 function ResetPassword() {
   const [curPassword, setCurPassword] = useState('');

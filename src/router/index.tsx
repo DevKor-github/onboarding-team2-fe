@@ -4,8 +4,8 @@ import { RouteObject } from 'react-router-dom';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Home from '../pages/Home';
-import Account from '../pages/Account';
-import ResetPassword from '../pages/ResetPassword';
+import Account from '../pages/account/Account';
+import ResetPassword from '../pages/account/ResetPassword';
 
 const routes: RouteObject[] = [
   {
