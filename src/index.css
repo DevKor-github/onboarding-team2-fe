@@ -13,6 +13,68 @@
 :root {
   --font-pretendard: 'Pretendard Variable';
   line-height: 1.5;
-
   color-scheme: light dark;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-input {
+  width: 300px;
+  margin: 8px;
+  padding: 8px;
+  border: 1px solid burlywood;
+  border-radius: 8px;
+}
+
+.form-button {
+  width: 300px;
+  margin: 16px 8px 8px 8px;
+  padding: 8px;
+  color: white;
+  background-color: burlywood;
+  border-radius: 8px;
+}
+
+.text-button {
+  margin: 8px;
+  white-space: nowrap;
+  align-self: flex-end;
+  text-decoration: underline; 
+  font-size: 0.8rem;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  padding: 8px;
+  background-color: burlywood;
+}
+
+.navbar-menu {
+  margin: 8px;
+}
+
+ /* Flex related */
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.justify-right {
+  justify-self: end;
+}
+
+.sp-1 {
+  flex-grow: 1;
 }
