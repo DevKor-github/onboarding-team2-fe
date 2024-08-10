@@ -36,24 +36,24 @@ function Login() {
   };
 
   return (
-    <div className="flex center">
+    <div>
       <form className="form" method="post" onSubmit={submitLogin}>
         <FormInput
-          id={'id'}
-          placeholder={'아이디'}
+          id="id"
+          label="아이디"
           onChange={(e) => setId(e.target.value)}
-          type={'text'}
+          type="text"
           required
         />
         <FormInput
-          id={'password'}
-          placeholder={'비밀번호'}
+          id="password"
+          label="비밀번호"
           onChange={(e) => setPassword(e.target.value)}
-          type={'password'}
+          type="password"
           required
         />
-        <FormButton text={'로그인'} />
-        <Link className="text-button justify-right" to={'/register'}>
+        <FormButton text="로그인" />
+        <Link className="text-button justify-right" to="/register">
           회원가입
         </Link>
       </form>

@@ -1,4 +1,6 @@
 import { useState } from 'react';
+
+/* Components */
 import Navbar from '../../components/Navbar';
 import FormInput from '../../components/FormInput';
 import FormButton from '../../components/FormButton';
@@ -16,32 +18,30 @@ function ResetPassword() {
   return (
     <div>
       <Navbar />
-      <div className="flex center">
-        <form className="form" method="post" onSubmit={resetPassword}>
-          <FormInput
-            id={'cur-password'}
-            placeholder={'현재 비밀번호'}
-            onChange={(e) => setCurPassword(e.target.value)}
-            type={'password'}
-            required
-          />
-          <FormInput
-            id={'password'}
-            placeholder={'새 비밀번호'}
-            onChange={(e) => setPassword(e.target.value)}
-            type={'password'}
-            required
-          />
-          <FormInput
-            id={'password-confirm'}
-            placeholder={'새 비밀번호 확인'}
-            onChange={(e) => setPasswordConfirm(e.target.value)}
-            type={'password'}
-            required
-          />
-          <FormButton text={'변경'} />
-        </form>
-      </div>
+      <form className="form" method="post" onSubmit={resetPassword}>
+        <FormInput
+          id="cur-password"
+          label="현재 비밀번호"
+          onChange={(e) => setCurPassword(e.target.value)}
+          type="password"
+          required
+        />
+        <FormInput
+          id="password"
+          label="새 비밀번호"
+          onChange={(e) => setPassword(e.target.value)}
+          type="password"
+          required
+        />
+        <FormInput
+          id="password-confirm"
+          label="새 비밀번호 확인"
+          onChange={(e) => setPasswordConfirm(e.target.value)}
+          type="password"
+          required
+        />
+        <FormButton text="변경" />
+      </form>
     </div>
   );
 }

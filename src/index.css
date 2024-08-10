@@ -16,22 +16,56 @@
   color-scheme: light dark;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 .form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .form-input {
-  width: 300px;
+  position: relative;
+}
+
+.form-input input {
+  width: 320px;
+  height: 40px;
   margin: 8px;
   padding: 8px;
   border: 1px solid burlywood;
   border-radius: 8px;
+  outline: none;
+}
+
+.form-input input:focus {
+  border: 2px solid burlywood;
+}
+
+.form-input label {
+  color: burlywood;
+  padding: 0 4px;
+  top: 50%;
+  left: 16px;
+  position: absolute;
+  transform: translateY(-50%);
+  transition: 0.2s;
+}
+
+.form-input input:focus~label,
+.form-input input:not(:empty)~label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  top: 8px;
+  background-color: white;
 }
 
 .form-button {
-  width: 300px;
+  width: 320px;
   margin: 16px 8px 8px 8px;
   padding: 8px;
   color: white;
@@ -45,11 +79,15 @@
   align-self: flex-end;
   text-decoration: underline; 
   font-size: 0.8rem;
+  color: burlywood;
 }
 
 .navbar {
   display: flex;
   flex-direction: row;
+  position: fixed;
+  top: 0;
+  right: 0;
   width: 100vw;
   padding: 8px;
   background-color: burlywood;
@@ -59,7 +97,7 @@
   margin: 8px;
 }
 
- /* Flex related */
+/* Flex related */
 .flex {
   display: flex;
   flex-wrap: wrap;

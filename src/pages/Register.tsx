@@ -39,39 +39,39 @@ function Register() {
   };
 
   return (
-    <div className="flex center">
+    <div>
       <form className="form" method="post" onSubmit={submitRegister}>
         <FormInput
           id={'id'}
-          placeholder={'아이디'}
+          label={'아이디'}
           onChange={(e) => setId(e.target.value)}
           type={'text'}
           required
         />
         <FormInput
           id={'nickname'}
-          placeholder={'닉네임'}
+          label={'닉네임'}
           onChange={(e) => setNickname(e.target.value)}
           type={'text'}
           required
         />
         <FormInput
           id={'password'}
-          placeholder={'비밀번호'}
+          label={'비밀번호'}
           onChange={(e) => setPassword(e.target.value)}
           type={'password'}
           required
         />
         <FormInput
           id={'confirm-password'}
-          placeholder={'비밀번호 확인'}
+          label={'비밀번호 확인'}
           onChange={(e) => setPasswordConfirm(e.target.value)}
           type={'password'}
           required
         />
         <FormInput
           id={'tag'}
-          placeholder={'태그'}
+          label={'태그'}
           onChange={(e) => setTags(e.target.value)}
           type={'text'}
           required
