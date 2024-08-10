@@ -21,8 +21,8 @@ function Navbar() {
           <MdOutlineHome size={20} />
         )}
       </Link>
-      <Link className="navbar-menu" to={'/chatting'}>
-        {curPath === '/chatting' ? (
+      <Link className="navbar-menu" to={'/chat'}>
+        {curPath === '/chat' ? (
           <MdComment size={20} />
         ) : (
           <MdOutlineComment size={20} />
