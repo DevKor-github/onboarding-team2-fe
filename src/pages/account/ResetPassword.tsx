@@ -10,9 +10,14 @@ function ResetPassword() {
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
 
-  const resetPassword = async (event: React.FormEvent<HTMLFormElement>) => {
+  const resetPassword = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    await new Promise((r) => setTimeout(r, 1000));
+    console.log(
+      'Reset password success',
+      curPassword,
+      password,
+      passwordConfirm
+    );
   };
 
   return (

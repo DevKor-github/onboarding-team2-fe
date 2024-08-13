@@ -13,9 +13,7 @@ function Account() {
 
   const updateAccount = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    await new Promise((r) => setTimeout(r, 1000));
-
-    console.log('Update success');
+    console.log('Update success', id, nickname, tags);
   };
 
   return (

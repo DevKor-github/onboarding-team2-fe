@@ -14,27 +14,17 @@ function Register() {
   const [passwordConfirm, setPasswordConfirm] = useState('');
   const [tags, setTags] = useState('');
 
-  const submitRegister = async (event: React.FormEvent<HTMLFormElement>) => {
+  const submitRegister = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    await new Promise((r) => setTimeout(r, 1000));
 
-    // const response = await fetch('로그인 서버 주소', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     id: id,
-    //     password: password,
-    //   }),
-    // });
-    // const result = await response.json();
-
-    // if (response.status === 200) {
-    //   console.log('로그인성공, 이메일주소:' + result.email);
-    // }
-
-    console.log('Register success');
+    console.log(
+      'Register success',
+      id,
+      nickname,
+      password,
+      passwordConfirm,
+      tags
+    );
     navigate('/');
   };
 

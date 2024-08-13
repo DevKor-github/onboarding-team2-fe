@@ -4,35 +4,26 @@ import { useState } from 'react';
 /* Components */
 import FormButton from '../components/FormButton';
 import FormInput from '../components/FormInput';
+import { useLogin } from '../api/hooks/auth';
 
 function Login() {
   const navigate = useNavigate();
 
+  const { mutate: mutateLogin } = useLogin();
+
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
 
-  const submitLogin = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    await new Promise((r) => setTimeout(r, 1000));
+  const submitLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-    // const response = await fetch('로그인 서버 주소', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     id: id,
-    //     password: password,
-    //   }),
-    // });
-    // const result = await response.json();
-
-    // if (response.status === 200) {
-    //   console.log('로그인성공, 이메일주소:' + result.email);
-    // }
-
-    console.log('Login success');
-    navigate('/home');
+    mutateLogin(
+      { userId: id, password: password },
+      {
+        onSuccess: () => navigate('/home'),
+        onError: () => console.log('error'),
+      }
+    );
   };
 
   return (

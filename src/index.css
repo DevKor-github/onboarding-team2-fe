@@ -57,7 +57,7 @@ body {
 }
 
 .form-input input:focus~label,
-.form-input input:not(:empty)~label {
+.form-input input:valid~label {
   font-size: 0.8rem;
   font-weight: 500;
   top: 8px;
