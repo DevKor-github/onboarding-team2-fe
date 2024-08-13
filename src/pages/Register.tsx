@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useRegister } from '../api/hooks/auth';
 import { useForm } from 'react-hook-form';
-import { RegisterForm } from '../types/register';
+import { RegisterForm } from '../types/registerForm';
 
 /* Components */
 import FormButton from '../components/FormButton';
@@ -11,13 +11,9 @@ function Register() {
   const passwordReg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$%^&*-]).{8,}$/;
 
   const navigate = useNavigate();
+
   const { mutate: mutateRegister } = useRegister();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    getValues,
-  } = useForm<RegisterForm>({ mode: 'onChange' });
+
   const submitRegister = () => {
     mutateRegister(
       {
@@ -33,6 +29,13 @@ function Register() {
       }
     );
   };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    getValues,
+  } = useForm<RegisterForm>({ mode: 'onChange' });
 
   return (
     <form className="form" onSubmit={handleSubmit(submitRegister)}>
