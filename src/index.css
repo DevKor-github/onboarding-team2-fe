@@ -14,13 +14,10 @@
   --font-pretendard: 'Pretendard Variable';
   line-height: 1.5;
   color-scheme: light dark;
-}
-
-body {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
 }
 
 .form {
@@ -30,6 +27,7 @@ body {
 
 .form-input {
   position: relative;
+  flex-direction: column;
 }
 
 .form-input input {
@@ -49,7 +47,7 @@ body {
 .form-input label {
   color: burlywood;
   padding: 0 4px;
-  top: 50%;
+  top: 28px;
   left: 16px;
   position: absolute;
   transform: translateY(-50%);
@@ -62,6 +60,13 @@ body {
   font-weight: 500;
   top: 8px;
   background-color: white;
+}
+
+.form-input p {
+  color: red;
+  font-size: 0.8rem;
+  text-align: end;
+  margin: 0 8px;
 }
 
 .form-button {

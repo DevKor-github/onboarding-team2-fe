@@ -1,6 +1,11 @@
 import { useMutation } from '@tanstack/react-query';
 import { apiInterface } from '../../utils/customAxios';
-import { LoginRequest, LoginResponse } from '../types/auth';
+import {
+  LoginRequest,
+  LoginResponse,
+  RegisterRequest,
+  RegisterResponse,
+} from '../types/auth';
 
 /**
  * userId, password를 입력 받아 로그인 요청을 보내는 함수
@@ -29,6 +34,43 @@ export const useLogin = () => {
 
       localStorage.setItem('accessToken', data.access_token);
       localStorage.setItem('userData', userData);
+    },
+  });
+};
+
+/**
+ * userId, password, username, status, tags를 입력 받아 회원가입 요청을 보내는 함수
+ *
+ * @param userId 사용자 아이디
+ * @param password 사용자 비밀번호
+ * @param username 사용자 닉네임
+ * @param status 사용자 밴 여부 - default false
+ * @param tags 관심 있는 태그 리스트
+ * @returns
+ */
+const register = async ({
+  userId,
+  password,
+  username,
+  status,
+  tags,
+}: RegisterRequest) => {
+  const response = await apiInterface.post<RegisterResponse>('/auth/register', {
+    userId,
+    password,
+    username,
+    status,
+    tags,
+  });
+
+  return response.data;
+};
+
+export const useRegister = () => {
+  return useMutation({
+    mutationFn: register,
+    onSuccess: (_) => {
+      console.log('Register success');
     },
   });
 };
