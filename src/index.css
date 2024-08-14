@@ -14,75 +14,43 @@
   --font-pretendard: 'Pretendard Variable';
   line-height: 1.5;
   color-scheme: light dark;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  width: 393px;
+  height: 852px;
+
+  /* Colors */
+  --primary: #3189f0;
+  --label-1: #2c2c2e;
+  --label-2: #3d3d3d;
+  --label-3: #666668;
+  --label-4: #d9d9d9;
+  --bgffffff: #ffffff;
+  --bg-1: #f2f2f7;
+  --shadow: #e5e5ea;
+}
+
+.shadow-bottom {
+  box-shadow: 0px 1px 0px 0px var(--shadow);
+}
+
+.shadow-top {
+  box-shadow: 0px -1px 0px 0px var(--shadow);
 }
 
 .form {
   display: flex;
   flex-direction: column;
-}
-
-.form-input {
-  position: relative;
-  flex-direction: column;
-}
-
-.form-input input {
-  width: 320px;
-  height: 40px;
-  margin: 8px;
-  padding: 8px;
-  border: 1px solid burlywood;
-  border-radius: 8px;
-  outline: none;
-}
-
-.form-input input:focus {
-  border: 2px solid burlywood;
-}
-
-.form-input label {
-  color: burlywood;
-  padding: 0 4px;
-  top: 28px;
-  left: 16px;
-  position: absolute;
-  transform: translateY(-50%);
-  transition: 0.2s;
-}
-
-.form-input input:focus~label,
-.form-input input:valid~label {
-  font-size: 0.8rem;
-  font-weight: 500;
-  top: 8px;
-  background-color: white;
-}
-
-.form-input p {
-  color: red;
-  font-size: 0.8rem;
-  text-align: end;
-  margin: 0 8px;
-}
-
-.form-button {
-  width: 320px;
-  margin: 16px 8px 8px 8px;
-  padding: 8px;
-  color: white;
-  background-color: burlywood;
-  border-radius: 8px;
+  gap: 10px;
 }
 
 .text-button {
   margin: 8px;
   white-space: nowrap;
   align-self: flex-end;
-  text-decoration: underline; 
+  text-decoration: underline;
   font-size: 0.8rem;
   color: burlywood;
 }

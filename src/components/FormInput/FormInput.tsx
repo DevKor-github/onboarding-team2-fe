@@ -1,4 +1,5 @@
 import { FieldError } from 'react-hook-form';
+import './formInput.css';
 
 interface FormInputProps {
   id: string;
@@ -17,7 +18,6 @@ function FormInput({
   type,
   required,
   register,
-  errors,
 }: FormInputProps) {
   return (
     <div className="form-input">
@@ -29,7 +29,6 @@ function FormInput({
         {...register}
       />
       <label htmlFor={id}>{label}</label>
-      {errors && <p>{errors.message}</p>}
     </div>
   );
 }

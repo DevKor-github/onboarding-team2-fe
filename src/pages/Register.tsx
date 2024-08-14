@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form';
 import { RegisterForm } from '../types/registerForm';
 
 /* Components */
-import FormButton from '../components/FormButton';
-import FormInput from '../components/FormInput';
+import FormButton from '../components/FormButton/FormButton';
+import FormInput from '../components/FormInput/FormInput';
 
 function Register() {
   const passwordReg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$%^&*-]).{8,}$/;

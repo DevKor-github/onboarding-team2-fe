@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 /* Components */
 import Navbar from '../../components/Navbar';
-import FormInput from '../../components/FormInput';
-import FormButton from '../../components/FormButton';
+import FormInput from '../../components/FormInput/FormInput';
+import FormButton from '../../components/FormButton/FormButton';
 
 function Account() {
   const [id, setId] = useState('');

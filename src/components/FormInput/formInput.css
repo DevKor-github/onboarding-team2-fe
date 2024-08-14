@@ -1,0 +1,55 @@
+.form-input {
+  position: relative;
+  flex-direction: column;
+}
+
+.form-input input {
+  height: 50px;
+  padding: 10px 14px;
+  border: 1px solid var(--label-4);
+  background: var(--bgffffff);
+  border-radius: 10px;
+  outline: none;
+  align-self: stretch;
+  align-items: center;
+
+  color: var(--label-1);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.form-input input:focus {
+  border: 2px solid var(--label-4);
+}
+
+.form-input label {
+  top: 50%;
+  left: 16px;
+  position: absolute;
+  transform: translateY(-50%);
+  transition: 0.2s;
+
+  color: var(--label-4);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.form-input input:focus ~ label,
+.form-input input:valid ~ label {
+  padding: 0 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  top: 0;
+  background-color: white;
+}
+
+.form-input p {
+  color: red;
+  font-size: 0.8rem;
+  text-align: end;
+  margin: 0 8px;
+}

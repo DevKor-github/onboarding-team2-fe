@@ -2,8 +2,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useLogin } from '../api/hooks/auth';
 
 /* Components */
-import FormButton from '../components/FormButton';
-import FormInput from '../components/FormInput';
+import FormButton from '../components/FormButton/FormButton';
+import FormInput from '../components/FormInput/FormInput';
 import { useForm } from 'react-hook-form';
 import { LoginForm } from '../types/loginForm';
 
