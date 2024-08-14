@@ -7,20 +7,30 @@
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
-  src: url('./fonts/woff2/PretendardVariable.woff2') format('woff2-variations');
+  src: url('./assets/fonts/PretendardVariable.woff2') format('woff2-variations');
 }
 
-:root {
-  --font-pretendard: 'Pretendard Variable';
-  line-height: 1.5;
-  color-scheme: light dark;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@font-face {
+  font-family: 'Montserrat Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/montserrat:vf@latest/latin-wght-normal.woff2)
+    format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
+html,
+body {
   width: 393px;
   height: 852px;
 
+  font-family: var(--font-pretendard);
+}
+
+:root {
   /* Colors */
   --primary: #3189f0;
   --label-1: #2c2c2e;
@@ -30,6 +40,16 @@
   --bgffffff: #ffffff;
   --bg-1: #f2f2f7;
   --shadow: #e5e5ea;
+
+  /* Fonts */
+  --font-pretendard: 'Pretendard Variable';
+  --font-montserrat: 'Montserrat Variable', sans-serif;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  align-content: center;
 }
 
 .shadow-bottom {
@@ -40,19 +60,11 @@
   box-shadow: 0px -1px 0px 0px var(--shadow);
 }
 
-.form {
+.input-container {
   display: flex;
   flex-direction: column;
+  padding: 0 34px;
   gap: 10px;
-}
-
-.text-button {
-  margin: 8px;
-  white-space: nowrap;
-  align-self: flex-end;
-  text-decoration: underline;
-  font-size: 0.8rem;
-  color: burlywood;
 }
 
 .navbar {
@@ -68,24 +80,4 @@
 
 .navbar-menu {
   margin: 8px;
-}
-
-/* Flex related */
-.flex {
-  display: flex;
-  flex-wrap: wrap;
-  height: 100vh;
-}
-
-.center {
-  justify-content: center;
-  align-items: center;
-}
-
-.justify-right {
-  justify-self: end;
-}
-
-.sp-1 {
-  flex-grow: 1;
 }

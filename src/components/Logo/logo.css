@@ -1,0 +1,24 @@
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 234px;
+  height: 51px;
+  padding-right: 1px;
+  gap: 6px;
+}
+
+.logo img {
+  width: 51px;
+  height: 51px;
+}
+
+.logo p {
+  color: #505156;
+  text-align: center;
+  font-family: var(--font-montserrat);
+  font-size: 39px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}

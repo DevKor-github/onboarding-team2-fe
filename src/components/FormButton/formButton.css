@@ -1,10 +1,17 @@
 .form-button {
-  height: 50px;
+  width: 100%;
+  height: 51px;
   padding: 10px;
   border-radius: 8px;
   justify-content: center;
   align-items: center;
   align-self: stretch;
+  justify-self: stretch;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .form-button-dark {
@@ -14,4 +21,5 @@
 
 .form-button-light {
   background-color: var(--bg-1);
+  color: var(--label-2);
 }

@@ -1,0 +1,30 @@
+.login {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-text {
+  color: var(--label-1);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0 0 30px 24px;
+}
+
+.logo-container {
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: center;
+  width: 234px;
+  padding-bottom: 60px;
+  gap: 10px;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 60px;
+  padding: 0 34px;
+  gap: 10px;
+}
