@@ -1,13 +1,12 @@
 import { useNavigate } from 'react-router-dom';
-import { useLogin } from '../../api/hooks/auth';
 import { useForm } from 'react-hook-form';
-import { LoginForm } from '../../types/loginForm';
-import './login.css';
+import { useLogin } from '../api/hooks/auth';
+import { LoginForm } from '../types/loginForm';
 
 /* Components */
-import FormButton from '../../components/FormButton/FormButton';
-import FormInput from '../../components/FormInput/FormInput';
-import Logo from '../../components/Logo/Logo';
+import FormButton from '../components/FormButton/FormButton';
+import FormInput from '../components/FormInput/FormInput';
+import Logo from '../components/Logo/Logo';
 
 function Login() {
   const navigate = useNavigate();
@@ -32,28 +31,35 @@ function Login() {
   } = useForm<LoginForm>({ mode: 'onChange' });
 
   return (
-    <form className="login" onSubmit={handleSubmit(submitLogin)}>
+    <form className="container" onSubmit={handleSubmit(submitLogin)}>
       <div className="logo-container">
         <Logo />
       </div>
-      <p className="login-text">로그인</p>
+      <p className="form-label">로그인</p>
       <div className="input-container">
         <FormInput
           id="id"
           label="아이디"
           type="text"
           required
-          register={register('userId')}
+          register={register('userId', { required: '아이디를 입력하세요' })}
+          errors={errors.userId}
         />
         <FormInput
           id="password"
           label="비밀번호"
           type="password"
           required
-          register={register('password')}
+          register={register('password', { required: '비밀번호를 입력하세요' })}
+          errors={errors.password}
         />
       </div>
-      <div className="buttons-container">
+      {errors && (
+        <p className="form-error" hidden={errors == null}>
+          {errors.userId?.message || errors.password?.message}
+        </p>
+      )}
+      <div className="form-button-container">
         <FormButton
           text="회원가입"
           type="button"

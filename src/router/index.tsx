@@ -1,8 +1,8 @@
 import { RouteObject } from 'react-router-dom';
 
 /* Pages */
-import Login from '../pages/Login/Login';
-import Register from '../pages/Register/Register';
+import Login from '../pages/Login';
+import Register from '../pages/Register';
 import Home from '../pages/Home';
 import Chat from '../pages/chat/Chat';
 import Account from '../pages/account/Account';

@@ -1,13 +1,12 @@
 import { useNavigate } from 'react-router-dom';
-import { useRegister } from '../../api/hooks/auth';
 import { useForm } from 'react-hook-form';
-import { RegisterForm } from '../../types/registerForm';
-import './register.css';
+import { useRegister } from '../api/hooks/auth';
+import { RegisterForm } from '../types/registerForm';
 
 /* Components */
-import FormButton from '../../components/FormButton/FormButton';
-import FormInput from '../../components/FormInput/FormInput';
-import Logo from '../../components/Logo/Logo';
+import FormButton from '../components/FormButton/FormButton';
+import FormInput from '../components/FormInput/FormInput';
+import Logo from '../components/Logo/Logo';
 
 function Register() {
   const passwordReg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$%^&*-]).{8,}$/;
@@ -43,11 +42,11 @@ function Register() {
   } = useForm<RegisterForm>({ mode: 'onChange' });
 
   return (
-    <form className="register" onSubmit={handleSubmit(submitRegister)}>
+    <form className="container" onSubmit={handleSubmit(submitRegister)}>
       <div className="logo-container">
         <Logo />
       </div>
-      <p className="register-text">회원가입</p>
+      <p className="form-label">회원가입</p>
       <div className="input-container">
         <FormInput
           id="id"
@@ -102,17 +101,17 @@ function Register() {
           })}
           errors={errors.tags}
         />
-        {errors && (
-          <p className="error">
-            {errors.userId?.message ||
-              errors.username?.message ||
-              errors.password?.message ||
-              errors.passwordConfirm?.message ||
-              errors.tags?.message}
-          </p>
-        )}
       </div>
-      <div className="buttons-container">
+      {errors && (
+        <p className="form-error">
+          {errors.userId?.message ||
+            errors.username?.message ||
+            errors.password?.message ||
+            errors.passwordConfirm?.message ||
+            errors.tags?.message}
+        </p>
+      )}
+      <div className="form-button-container">
         <FormButton text="회원가입" type="submit" isDark />
       </div>
     </form>
