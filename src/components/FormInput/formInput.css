@@ -7,7 +7,8 @@
   width: 100%;
   height: 50px;
   padding: 10px 14px;
-  border: 1px solid var(--label-4);
+  border: 1px solid;
+  border-color: var(--label-4);
   background: var(--bgffffff);
   border-radius: 10px;
   outline: none;
@@ -21,7 +22,8 @@
 }
 
 .form-input input:focus {
-  border: 2px solid var(--label-4);
+  border: 2px solid;
+  border-color: var(--label-4);
 }
 
 .form-input label {
@@ -39,7 +41,7 @@
 }
 
 .form-input input:focus ~ label,
-.form-input input:valid ~ label {
+.form-input input:not(:placeholder-shown) ~ label {
   padding: 0 4px;
   font-size: 0.8rem;
   font-weight: 500;
@@ -47,9 +49,14 @@
   background-color: var(--bgffffff);
 }
 
-.form-input p {
+.input-error input {
+  border-color: red;
+}
+
+.input-error input:focus {
+  border-color: red;
+}
+
+.input-error label {
   color: red;
-  font-size: 0.8rem;
-  text-align: end;
-  margin: 0 8px;
 }

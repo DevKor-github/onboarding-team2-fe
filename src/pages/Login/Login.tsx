@@ -32,12 +32,12 @@ function Login() {
   } = useForm<LoginForm>({ mode: 'onChange' });
 
   return (
-    <form className="login">
+    <form className="login" onSubmit={handleSubmit(submitLogin)}>
       <div className="logo-container">
         <Logo />
       </div>
       <p className="login-text">로그인</p>
-      <div className="input-container" onSubmit={handleSubmit(submitLogin)}>
+      <div className="input-container">
         <FormInput
           id="id"
           label="아이디"

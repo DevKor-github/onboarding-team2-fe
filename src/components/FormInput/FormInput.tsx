@@ -18,14 +18,17 @@ function FormInput({
   type,
   required,
   register,
+  errors,
 }: FormInputProps) {
+  const error = errors != null ? 'input-error' : '';
   return (
-    <div className="form-input">
+    <div className={`form-input ${error}`}>
       <input
         id={id}
         onChange={onChange}
         type={type}
         required={required}
+        placeholder=" "
         {...register}
       />
       <label htmlFor={id}>{label}</label>
