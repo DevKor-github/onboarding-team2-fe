@@ -1,0 +1,88 @@
+.message-bubble-container {
+  display: inline-flex;
+  max-width: 288px;
+  padding: 0 33px 10px 0;
+  align-items: start;
+}
+
+.message-bubble {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: stretch;
+  padding: 4px 8px;
+  gap: 8px;
+  border-radius: 6px;
+}
+
+.message-area-self .message-bubble {
+  background: var(--primary);
+}
+
+.message-area-other .message-bubble {
+  background: var(--bg-1);
+}
+
+.message-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  white-space: pre-line;
+}
+
+.message-area-self p {
+  color: var(--bgffffff);
+}
+
+.message-area-other p {
+  color: var(--label-1);
+}
+
+.message-time {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-items: center;
+  gap: 4px;
+}
+
+.message-time p {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.bubble-tip {
+  position: relative;
+  width: 15px;
+  height: 12px;
+}
+
+.message-area-self .bubble-tip {
+  left: -6px;
+  right: 0;
+}
+
+.message-area-other .bubble-tip {
+  left: 0;
+  right: 6px;
+}
+
+.message-area-self .message-bubble-container:not(:first-child) .bubble-tip {
+  display: none;
+}
+
+.message-area-other .message-bubble-container:not(:first-child) .bubble-tip {
+  display: none;
+}
+
+.message-area-self .message-bubble-container:first-child {
+  padding: 0 18px 10px 0;
+}
