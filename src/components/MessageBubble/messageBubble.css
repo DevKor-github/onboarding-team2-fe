@@ -1,8 +1,15 @@
 .message-bubble-container {
   display: inline-flex;
   max-width: 288px;
-  padding: 0 33px 10px 0;
   align-items: start;
+}
+
+.message-area-self .message-bubble-container {
+  padding: 0 33px 10px 0;
+}
+
+.message-area-other .message-bubble-container {
+  padding: 0 0 10px 69px;
 }
 
 .message-bubble {
@@ -70,19 +77,29 @@
   right: 0;
 }
 
-.message-area-other .bubble-tip {
-  left: 0;
-  right: 6px;
+.message-area-other .message-bubble-container:first-child .message-bubble {
+  position: relative;
+  left: -6px;
+  right: 0;
 }
 
 .message-area-self .message-bubble-container:not(:first-child) .bubble-tip {
   display: none;
 }
 
-.message-area-other .message-bubble-container:not(:first-child) .bubble-tip {
+.message-area-other .message-bubble-container:not(:first-child) .bubble-tip,
+.message-area-other .message-bubble-container:not(:first-child) .avatar {
   display: none;
 }
 
 .message-area-self .message-bubble-container:first-child {
   padding: 0 18px 10px 0;
+}
+
+.message-area-other .message-bubble-container:first-child {
+  padding: 0 0 10px 24px;
+}
+
+.message-area-other .message-bubble-container:first-child .avatar {
+  margin-right: 4px;
 }
