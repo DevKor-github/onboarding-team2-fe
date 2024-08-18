@@ -1,5 +1,7 @@
+/* Components */
 import MessageBubbleOther from '../../components/MessageBubble/MessageBubbleOther';
 import MessageBubbleSelf from '../../components/MessageBubble/MessageBubbleSelf';
+import MessageInput from '../../components/MessageInput/MessageInput';
 import Navbar from '../../components/Navbar';
 
 function Chat() {
@@ -28,6 +30,7 @@ function Chat() {
           time="오전 11:30"
         />
       </div>
+      <MessageInput />
     </div>
   );
 }
