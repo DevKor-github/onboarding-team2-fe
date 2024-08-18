@@ -77,23 +77,23 @@
   right: 0;
 }
 
+.message-area-self .message-bubble-container:not(:first-child) .bubble-tip {
+  display: none;
+}
+
+.message-area-self .message-bubble-container:first-child {
+  padding: 0 18px 10px 0;
+}
+
 .message-area-other .message-bubble-container:first-child .message-bubble {
   position: relative;
   left: -6px;
   right: 0;
 }
 
-.message-area-self .message-bubble-container:not(:first-child) .bubble-tip {
-  display: none;
-}
-
 .message-area-other .message-bubble-container:not(:first-child) .bubble-tip,
 .message-area-other .message-bubble-container:not(:first-child) .avatar {
   display: none;
-}
-
-.message-area-self .message-bubble-container:first-child {
-  padding: 0 18px 10px 0;
 }
 
 .message-area-other .message-bubble-container:first-child {
