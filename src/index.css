@@ -119,3 +119,16 @@ body {
 .navbar-menu {
   margin: 8px;
 }
+
+.message-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-area-self {
+  align-items: flex-end;
+}
+
+.message-area-other {
+  align-items: flex-start;
+}
