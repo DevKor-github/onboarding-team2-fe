@@ -20,13 +20,14 @@ const login = async ({ userId, password }: LoginRequest) => {
     password,
   });
 
-  return response.data;
+  return response;
 };
 
 export const useLogin = () => {
   return useMutation({
     mutationFn: login,
     onSuccess: (data) => {
+      console.log(data.headers);
       // 로그인 성공시 access token 저장
       // payload에서 유저 정보 추출 후 저장
       // const payload = data.access_token.split('.')[1];
