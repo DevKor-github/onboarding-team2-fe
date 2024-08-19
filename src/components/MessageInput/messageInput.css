@@ -5,6 +5,8 @@
   width: 393px;
   padding: 12px 24px 30px 24px;
   gap: 12px;
+  position: fixed;
+  bottom: 0;
 
   background: var(--bgffffff);
 }

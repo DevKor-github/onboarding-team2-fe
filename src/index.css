@@ -111,7 +111,7 @@ body {
   position: fixed;
   top: 0;
   right: 0;
-  width: 100vw;
+  width: 393px;
   padding: 8px;
   background-color: burlywood;
 }
@@ -120,7 +120,9 @@ body {
   margin: 8px;
 }
 
-.message-area {
+.message-area,
+.message-area-self,
+.message-area-other {
   display: flex;
   flex-direction: column;
 }

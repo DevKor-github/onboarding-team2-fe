@@ -29,11 +29,10 @@ export const useLogin = () => {
     onSuccess: (data) => {
       // 로그인 성공시 access token 저장
       // payload에서 유저 정보 추출 후 저장
-      const payload = data.access_token.split('.')[1];
-      const userData = JSON.parse(atob(payload));
-
-      localStorage.setItem('accessToken', data.access_token);
-      localStorage.setItem('userData', userData);
+      // const payload = data.access_token.split('.')[1];
+      // const userData = JSON.parse(atob(payload));
+      // localStorage.setItem('accessToken', data.access_token);
+      // localStorage.setItem('userData', userData);
     },
   });
 };
