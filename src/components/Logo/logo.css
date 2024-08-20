@@ -2,23 +2,44 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
+}
+
+.logo.large {
   width: 234px;
   height: 51px;
   padding-right: 1px;
   gap: 6px;
 }
 
-.logo img {
+.logo.small {
+  width: 78px;
+  height: 17px;
+  gap: 2px;
+}
+
+.logo.large img {
   width: 51px;
   height: 51px;
+}
+
+.logo.small img {
+  width: 17px;
+  height: 17px;
 }
 
 .logo p {
   color: #505156;
   text-align: center;
   font-family: var(--font-montserrat);
-  font-size: 39px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+}
+
+.logo.large p {
+  font-size: 39px;
+}
+
+.logo.small p {
+  font-size: 13px;
 }

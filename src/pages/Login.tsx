@@ -32,7 +32,7 @@ function Login() {
   return (
     <form className="container" onSubmit={handleSubmit(submitLogin)}>
       <div className="logo-container">
-        <Logo />
+        <Logo size="large" />
       </div>
       <p className="form-label">로그인</p>
       <div className="input-container">

@@ -5,7 +5,7 @@ import { socket } from '../../utils/socket';
 import MessageBubbleOther from '../../components/MessageBubble/MessageBubbleOther';
 import MessageBubbleSelf from '../../components/MessageBubble/MessageBubbleSelf';
 import MessageInput from '../../components/MessageInput/MessageInput';
-import Navbar from '../../components/Navbar';
+import Topbar from '../../components/Topbar/Topbar';
 
 function Chat() {
   // 채팅 스크롤
@@ -24,7 +24,7 @@ function Chat() {
 
   return (
     <div className="chat">
-      <Navbar />
+      <Topbar />
       <div className="message-container">
         <div className="message-area" ref={chatRef}>
           <div className="message-area-self">

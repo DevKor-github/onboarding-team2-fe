@@ -1,8 +1,12 @@
 import './logo.css';
 
-function Logo() {
+interface LogoProps {
+  size: 'small' | 'large';
+}
+
+function Logo({ size }: LogoProps) {
   return (
-    <div className="logo">
+    <div className={`logo ${size}`}>
       <img src="src/assets/DevKorLogo.svg"></img>
       <p>DEVKOR</p>
     </div>
