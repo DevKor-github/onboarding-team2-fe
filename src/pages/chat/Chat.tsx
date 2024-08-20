@@ -1,3 +1,6 @@
+import { useEffect } from 'react';
+import { socket } from '../../utils/socket';
+
 /* Components */
 import MessageBubbleOther from '../../components/MessageBubble/MessageBubbleOther';
 import MessageBubbleSelf from '../../components/MessageBubble/MessageBubbleSelf';
@@ -5,6 +8,13 @@ import MessageInput from '../../components/MessageInput/MessageInput';
 import Navbar from '../../components/Navbar';
 
 function Chat() {
+  useEffect(() => {
+    socket.emit('joinRoom', {
+      roomId: '66c045da1dbb6222e6c753f9',
+      userId: localStorage.getItem('_id')!,
+    });
+  }, [socket]);
+
   return (
     <div>
       <Navbar />

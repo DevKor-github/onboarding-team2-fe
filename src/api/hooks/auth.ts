@@ -27,14 +27,15 @@ export const useLogin = () => {
   return useMutation({
     mutationFn: login,
     onSuccess: (data) => {
-      console.log(data.headers.authorization);
       // 로그인 성공시 access token 저장
       // payload에서 유저 정보 추출 후 저장
       const token = data.headers.authorization;
       const payload = token.split('.')[1];
       const userData = JSON.parse(atob(payload));
       localStorage.setItem('accessToken', token);
-      localStorage.setItem('userData', userData);
+      localStorage.setItem('_id', userData._id);
+      localStorage.setItem('userId', userData.userId);
+      localStorage.setItem('username', userData.username);
     },
   });
 };

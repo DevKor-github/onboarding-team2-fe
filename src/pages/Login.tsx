@@ -10,7 +10,6 @@ import Logo from '../components/Logo/Logo';
 
 function Login() {
   const navigate = useNavigate();
-
   const { mutate: mutateLogin } = useLogin();
 
   const submitLogin = () => {
@@ -18,7 +17,7 @@ function Login() {
       { userId: getValues('userId'), password: getValues('password') },
       {
         onSuccess: () => navigate('/home'),
-        onError: () => console.log('error'),
+        onError: (e) => console.log('error on login: ', e),
       }
     );
   };
