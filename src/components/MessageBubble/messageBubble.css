@@ -30,6 +30,14 @@
   background: var(--bg-1);
 }
 
+.sender-name {
+  color: var(--label-1);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+}
+
 .message-text {
   display: flex;
   flex-direction: column;
@@ -77,29 +85,29 @@
   right: 0;
 }
 
-.message-area-self .message-bubble-container:not(:first-child) .bubble-tip {
+.message-area-self .message-bubble-container:not(:last-child) .bubble-tip {
   display: none;
 }
 
-.message-area-self .message-bubble-container:first-child {
+.message-area-self .message-bubble-container:last-child {
   padding: 0 18px 10px 0;
 }
 
-.message-area-other .message-bubble-container:first-child .message-bubble {
+.message-area-other .message-bubble-container:last-child .message-bubble {
   position: relative;
   left: -6px;
   right: 0;
 }
 
-.message-area-other .message-bubble-container:not(:first-child) .bubble-tip,
-.message-area-other .message-bubble-container:not(:first-child) .avatar {
+.message-area-other .message-bubble-container:not(:last-child) .bubble-tip,
+.message-area-other .message-bubble-container:not(:last-child) .avatar {
   display: none;
 }
 
-.message-area-other .message-bubble-container:first-child {
+.message-area-other .message-bubble-container:last-child {
   padding: 0 0 10px 24px;
 }
 
-.message-area-other .message-bubble-container:first-child .avatar {
+.message-area-other .message-bubble-container:last-child .avatar {
   margin-right: 4px;
 }

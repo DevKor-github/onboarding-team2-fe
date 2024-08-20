@@ -120,11 +120,30 @@ body {
   margin: 8px;
 }
 
-.message-area,
+.chat {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.message-container {
+  flex: 1;
+  overflow: hidden;
+
+  padding: 52px 0 82px 0;
+}
+
+.message-area {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 100%;
+  overflow-y: auto;
+}
+
 .message-area-self,
 .message-area-other {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
 }
 
 .message-area-self {
