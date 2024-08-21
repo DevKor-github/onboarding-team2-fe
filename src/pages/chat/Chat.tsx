@@ -6,6 +6,7 @@ import MessageBubbleOther from '../../components/MessageBubble/MessageBubbleOthe
 import MessageBubbleSelf from '../../components/MessageBubble/MessageBubbleSelf';
 import MessageInput from '../../components/MessageInput/MessageInput';
 import Topbar from '../../components/Topbar/Topbar';
+import Profile from '../../components/Profile/Profile';
 
 function Chat() {
   // 채팅 스크롤
@@ -25,6 +26,7 @@ function Chat() {
   return (
     <div className="chat">
       <Topbar />
+      <Profile name="원하진" />
       <div className="message-container">
         <div className="message-area" ref={chatRef}>
           <div className="message-area-self">
