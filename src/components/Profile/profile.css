@@ -1,19 +1,4 @@
-.profile {
-  padding: 15px 24px;
-  justify-content: space-between;
-  align-items: center;
-  align-self: stretch;
-
-  background: var(--bgffffff, #fff);
-}
-
-.user {
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-}
-
-.user p {
+.profile p {
   color: var(--label-1);
   font-size: 14px;
   font-style: normal;

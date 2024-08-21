@@ -4,7 +4,7 @@ import { RouteObject } from 'react-router-dom';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Home from '../pages/Home';
-import Chat from '../pages/chat/Chat';
+import Chat from '../pages/Chat';
 import Account from '../pages/account/Account';
 import ResetPassword from '../pages/account/ResetPassword';
 

@@ -1,12 +1,14 @@
 import { useEffect, useRef } from 'react';
-import { socket } from '../../utils/socket';
+import { socket } from '../utils/socket';
 
 /* Components */
-import MessageBubbleOther from '../../components/MessageBubble/MessageBubbleOther';
-import MessageBubbleSelf from '../../components/MessageBubble/MessageBubbleSelf';
-import MessageInput from '../../components/MessageInput/MessageInput';
-import Topbar from '../../components/Topbar/Topbar';
-import Profile from '../../components/Profile/Profile';
+import MessageBubbleOther from '../components/MessageBubble/MessageBubbleOther';
+import MessageBubbleSelf from '../components/MessageBubble/MessageBubbleSelf';
+import MessageInput from '../components/MessageInput/MessageInput';
+import Topbar from '../components/Topbar/Topbar';
+import Profile from '../components/Profile/Profile';
+import Header from '../components/Header/Header';
+import { MdMoreHoriz } from 'react-icons/md';
 
 function Chat() {
   // 채팅 스크롤
@@ -26,7 +28,10 @@ function Chat() {
   return (
     <div className="flex flex-col h-screen">
       <Topbar />
-      <Profile name="원하진" />
+      <Header
+        start={<Profile name="원하진" />}
+        end={<MdMoreHoriz size={16} />}
+      />
       <div className="flex-1 overflow-hidden message-container">
         <div
           className="flex flex-col-reverse h-full overflow-y-auto"

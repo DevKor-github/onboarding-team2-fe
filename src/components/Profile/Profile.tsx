@@ -1,4 +1,3 @@
-import { MdMoreHoriz } from 'react-icons/md';
 import Avatar from '../Avatar/Avatar';
 import './profile.css';
 
@@ -8,12 +7,9 @@ interface profileProps {
 
 function Profile({ name }: profileProps) {
   return (
-    <div className="profile flex shadow-bottom">
-      <div className="user flex">
-        <Avatar />
-        <p className="profile-name">{name}</p>
-      </div>
-      <MdMoreHoriz size={16} />
+    <div className="profile flex justify-center items-center gap-1">
+      <Avatar />
+      <p>{name}</p>
     </div>
   );
 }

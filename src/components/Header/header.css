@@ -1,0 +1,12 @@
+.header {
+  padding: 15px 24px;
+  background: var(--bgffffff, #fff);
+}
+
+.header p {
+  color: var(--label-1, #2c2c2e);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px; /* 100% */
+}
