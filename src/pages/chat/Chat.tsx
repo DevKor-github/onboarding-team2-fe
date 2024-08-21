@@ -24,11 +24,14 @@ function Chat() {
   }, [socket]);
 
   return (
-    <div className="chat">
+    <div className="flex flex-col h-screen">
       <Topbar />
       <Profile name="원하진" />
-      <div className="message-container">
-        <div className="message-area" ref={chatRef}>
+      <div className="flex-1 overflow-hidden message-container">
+        <div
+          className="flex flex-col-reverse h-full overflow-y-auto"
+          ref={chatRef}
+        >
           <div className="message-area-self">
             <MessageBubbleSelf
               message={`그 학교 옆에 그 카페 이름 뭐였죠?`}
