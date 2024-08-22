@@ -1,4 +1,6 @@
 import './messageBubble.css';
+import read from '../../assets/ReadCheck.svg';
+import tip from '../../assets/BubbleTipSelf.svg';
 
 interface MessageBubbleSelfProps {
   message: string;
@@ -13,10 +15,10 @@ function MessageBubbleSelf({ message, time, isRead }: MessageBubbleSelfProps) {
         <p className="message-text">{message}</p>
         <div className="message-time">
           <p>{time}</p>
-          {isRead && <img src="src/assets/ReadCheck.svg"></img>}
+          {isRead && <img src={read}></img>}
         </div>
       </div>
-      <img src="src/assets/BubbleTipSelf.svg" className="bubble-tip" />
+      <img src={tip} className="bubble-tip" />
     </div>
   );
 }

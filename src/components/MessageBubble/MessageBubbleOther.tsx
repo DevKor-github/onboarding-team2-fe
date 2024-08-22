@@ -1,5 +1,6 @@
 import Avatar from '../Avatar/Avatar';
 import './messageBubble.css';
+import tip from '../../assets/BubbleTipOther.svg';
 
 interface MessageBubbleSelfProps {
   message: string;
@@ -11,7 +12,7 @@ function MessageBubbleOther({ message, name, time }: MessageBubbleSelfProps) {
   return (
     <div className="message-bubble-container">
       <Avatar />
-      <img src="src/assets/BubbleTipOther.svg" className="bubble-tip" />
+      <img src={tip} className="bubble-tip" />
       <div className="message-bubble">
         <p className="sender-name">{name}</p>
         <p className="message-text">{message}</p>

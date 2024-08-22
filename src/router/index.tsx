@@ -15,7 +15,7 @@ const routes: RouteObject[] = [
       { path: '/', element: <Login /> },
       { path: '/register', element: <Register /> },
       { path: '/home', element: <Home /> },
-      { path: '/chat', element: <Chat /> },
+      { path: '/chat/:roomId', element: <Chat /> },
       { path: '/account', element: <Account /> },
       { path: '/account/resetPassword', element: <ResetPassword /> },
     ],

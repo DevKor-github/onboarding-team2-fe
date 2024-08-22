@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { socket } from '../utils/socket';
+import { useParams } from 'react-router-dom';
 
 /* Components */
 import MessageBubbleOther from '../components/MessageBubble/MessageBubbleOther';
@@ -11,19 +12,19 @@ import Header from '../components/Header/Header';
 import { MdMoreHoriz } from 'react-icons/md';
 
 function Chat() {
-  // 채팅 스크롤
-  const chatRef = useRef<HTMLDivElement | null>(null);
+  const chatRef = useRef<HTMLDivElement | null>(null); // 채팅 스크롤
+  const { roomId } = useParams<{ roomId: string }>();
 
   useEffect(() => {
     socket.emit('joinRoom', {
-      roomId: '66c045da1dbb6222e6c753f9',
+      roomId: { roomId },
       userId: localStorage.getItem('_id')!,
     });
 
     if (chatRef.current) {
       chatRef.current.scrollTop = chatRef.current.scrollHeight;
     }
-  }, [socket]);
+  }, []);
 
   return (
     <div className="flex flex-col h-screen">
