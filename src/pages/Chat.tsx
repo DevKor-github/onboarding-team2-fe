@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { socket } from '../utils/socket';
 import { useParams } from 'react-router-dom';
+import { selfChatData, otherChatData } from '../types/chatData';
 
 /* Components */
 import MessageBubbleOther from '../components/MessageBubble/MessageBubbleOther';
@@ -11,6 +12,11 @@ import Profile from '../components/Profile/Profile';
 import Header from '../components/Header/Header';
 import { MdMoreHoriz } from 'react-icons/md';
 
+// Dummy
+import chatDummy from '../utils/chatDummy.json';
+
+const chats = chatDummy as (selfChatData | otherChatData)[];
+
 function Chat() {
   const chatRef = useRef<HTMLDivElement | null>(null); // 채팅 스크롤
   const { roomId } = useParams<{ roomId: string }>();
@@ -19,6 +25,10 @@ function Chat() {
     socket.emit('joinRoom', {
       roomId: { roomId },
       userId: localStorage.getItem('_id')!,
+    });
+
+    socket.on('MessageSend', (data) => {
+      console.log(data);
     });
 
     if (chatRef.current) {
@@ -38,106 +48,32 @@ function Chat() {
           className="flex flex-col-reverse h-full overflow-y-auto"
           ref={chatRef}
         >
-          <div className="message-area-self">
-            <MessageBubbleSelf
-              message={`그 학교 옆에 그 카페 이름 뭐였죠?`}
-              time="오전 11:30"
-              isRead
-            />
-            <MessageBubbleSelf
-              message={`저번에 갔던 곳 좋은 것 같아요.`}
-              time="오전 11:30"
-              isRead
-            />
-          </div>
-          <div className="message-area-other">
-            <MessageBubbleOther
-              message={`오늘 회의 어디서 하나요?`}
-              name="원하진"
-              time="오전 11:30"
-            />
-          </div>
-          <div className="message-area-self">
-            <MessageBubbleSelf
-              message={`그 학교 옆에 그 카페 이름 뭐였죠?`}
-              time="오전 11:30"
-              isRead
-            />
-            <MessageBubbleSelf
-              message={`저번에 갔던 곳 좋은 것 같아요.`}
-              time="오전 11:30"
-              isRead
-            />
-          </div>
-          <div className="message-area-other">
-            <MessageBubbleOther
-              message={`오늘 회의 어디서 하나요?`}
-              name="원하진"
-              time="오전 11:30"
-            />
-          </div>
-          <div className="message-area-self">
-            <MessageBubbleSelf
-              message={`그 학교 옆에 그 카페 이름 뭐였죠?`}
-              time="오전 11:30"
-              isRead
-            />
-            <MessageBubbleSelf
-              message={`저번에 갔던 곳 좋은 것 같아요.`}
-              time="오전 11:30"
-              isRead
-            />
-          </div>
-          <div className="message-area-other">
-            <MessageBubbleOther
-              message={`오늘 회의 어디서 하나요?`}
-              name="원하진"
-              time="오전 11:30"
-            />
-            <MessageBubbleOther
-              message={`오늘 회의 어디서 하나요?`}
-              name="원하진"
-              time="오전 11:30"
-            />
-          </div>
-          <div className="message-area-self">
-            <MessageBubbleSelf
-              message={`그 학교 옆에 그 카페 이름 뭐였죠?`}
-              time="오전 11:30"
-              isRead
-            />
-            <MessageBubbleSelf
-              message={`저번에 갔던 곳 좋은 것 같아요.`}
-              time="오전 11:30"
-              isRead
-            />
-          </div>
-          <div className="message-area-other">
-            <MessageBubbleOther
-              message={`오늘 회의 어디서 하나요?`}
-              name="원하진"
-              time="오전 11:30"
-            />
-          </div>
-          <div className="message-area-self">
-            <MessageBubbleSelf
-              message={`그 학교 옆에 그 카페 이름 뭐였죠?`}
-              time="오전 11:30"
-              isRead
-            />
-            <MessageBubbleSelf
-              message={`저번에 갔던 곳 좋은 것 같아요.`}
-              time="오전 11:30"
-              isRead
-            />
-          </div>
-          <div className="message-area-other">
-            <MessageBubbleOther
-              message={`오늘 회의 어디서 하나요?`}
-              name="원하진"
-              time="오전 11:30"
-            />
-          </div>
+          {chats.map((messages, index) => (
+            <div
+              key={index}
+              className={
+                messages.self ? 'message-area-self' : 'message-area-other'
+              }
+            >
+              {messages.messages.map((message, idx) =>
+                messages.self ? (
+                  <MessageBubbleSelf
+                    key={idx}
+                    message={message.message}
+                    time={message.time}
+                    isRead={(message as selfChatData['messages'][0]).isRead}
+                  />
+                ) : (
+                  <MessageBubbleOther
+                    key={idx}
+                    message={message.message}
+                    name={(message as otherChatData['messages'][0]).name}
+                    time={message.time}
+                  />
+                )
+              )}
+            </div>
+          ))}
         </div>
       </div>
       <MessageInput />

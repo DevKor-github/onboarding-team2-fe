@@ -1,0 +1,72 @@
+[
+  {
+    "self": true,
+    "messages": [
+      {
+        "message": "거기로 가시죠 ㄱㄱ",
+        "time": "오전 11:30",
+        "isRead": true
+      },
+      {
+        "message": "아 맞아 요아정",
+        "time": "오전 11:30",
+        "isRead": true
+      }
+    ]
+  },
+  {
+    "self": false,
+    "messages": [
+      {
+        "name": "원하진",
+        "message": "ㅇㅇ 맞는듯",
+        "time": "오전 11:30"
+      },
+      {
+        "name": "원하진",
+        "message": "요아정이였나",
+        "time": "오전 11:30"
+      },
+      {
+        "name": "원하진",
+        "message": "아 거기 이름 뭐더라",
+        "time": "오전 11:30"
+      }
+    ]
+  },
+  {
+    "self": true,
+    "messages": [
+      {
+        "message": "그 학교 옆에 그 카페 이름 뭐였죠?",
+        "time": "오전 11:30",
+        "isRead": true
+      },
+      {
+        "message": "저번에 갔던 곳 좋은 것 같아요.",
+        "time": "오전 11:30",
+        "isRead": true
+      }
+    ]
+  },
+  {
+    "self": false,
+    "messages": [
+      {
+        "name": "원하진",
+        "message": "장소 정해주시죠",
+        "time": "오전 11:30"
+      },
+      {
+        "name": "원하진",
+        "message": "오늘 회의 어디서 하나요?",
+        "time": "오전 11:30"
+      },
+      {
+        "name": "원하진",
+        "message": "선생님",
+        "time": "오전 11:30"
+      }
+    ]
+  }
+]
