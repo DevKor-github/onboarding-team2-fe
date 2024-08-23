@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { socket } from '../utils/socket';
+import { ChatRoomData } from '../types/chatRoomData';
 
 /* Components */
 import ChatRoom from '../components/ChatRoom/ChatRoom';
@@ -8,12 +9,6 @@ import Topbar from '../components/Topbar/Topbar';
 
 // Dummy
 import chatroomDummy from '../utils/chatroomDummy.json';
-
-interface ChatRoomData {
-  roomId: string;
-  name: string;
-  lastMsgSent: string;
-}
 
 const chatrooms: ChatRoomData[] = chatroomDummy as ChatRoomData[];
 
