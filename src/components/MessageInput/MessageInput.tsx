@@ -1,10 +1,11 @@
 import './messageInput.css';
+import icon from '../../assets/IconButton.svg';
 
 function MessageInput() {
   return (
     <div className="message-input-container shadow-top">
       <button>
-        <img src="src/assets/IconButton.svg" className="message-icon-button" />
+        <img src={icon} className="message-icon-button" />
       </button>
       <div className="message-input-area">
         <input className="message-input" placeholder="메시지를 입력하세요..." />

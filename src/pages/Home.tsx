@@ -10,7 +10,7 @@ import Topbar from '../components/Topbar/Topbar';
 // Dummy
 import chatroomDummy from '../utils/chatroomDummy.json';
 
-const chatrooms: ChatRoomData[] = chatroomDummy as ChatRoomData[];
+const chatrooms = chatroomDummy as ChatRoomData[];
 
 function Home() {
   useEffect(() => {
