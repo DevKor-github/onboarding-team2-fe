@@ -1,6 +1,6 @@
 export interface selfChatData {
   self: boolean;
-  messages: {
+  chats: {
     message: string;
     time: string;
     isRead: boolean;
@@ -9,7 +9,7 @@ export interface selfChatData {
 
 export interface otherChatData {
   self: boolean;
-  messages: {
+  chats: {
     name: string;
     message: string;
     time: string;

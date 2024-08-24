@@ -1,7 +1,7 @@
 [
   {
     "self": true,
-    "messages": [
+    "chats": [
       {
         "message": "거기로 가시죠 ㄱㄱ",
         "time": "오전 11:30",
@@ -16,7 +16,7 @@
   },
   {
     "self": false,
-    "messages": [
+    "chats": [
       {
         "name": "원하진",
         "message": "ㅇㅇ 맞는듯",
@@ -36,7 +36,7 @@
   },
   {
     "self": true,
-    "messages": [
+    "chats": [
       {
         "message": "그 학교 옆에 그 카페 이름 뭐였죠?",
         "time": "오전 11:30",
@@ -51,7 +51,7 @@
   },
   {
     "self": false,
-    "messages": [
+    "chats": [
       {
         "name": "원하진",
         "message": "장소 정해주시죠",

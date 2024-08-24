@@ -1,15 +1,35 @@
 import './messageInput.css';
 import icon from '../../assets/IconButton.svg';
+import { useState } from 'react';
 
-function MessageInput() {
+interface messageInputProps {
+  onSendMessage: (message: string) => void;
+}
+
+function MessageInput({ onSendMessage }: messageInputProps) {
+  const [message, setMessage] = useState('');
+
+  const sendMessage = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (message.trim()) {
+      onSendMessage(message);
+      setMessage('');
+    }
+  };
+
   return (
-    <div className="message-input-container shadow-top">
+    <form className="message-input-container shadow-top" onSubmit={sendMessage}>
       <button>
         <img src={icon} className="message-icon-button" />
       </button>
       <div className="message-input-area">
-        <input className="message-input" placeholder="메시지를 입력하세요..." />
-        <button className="message-send-button">
+        <input
+          className="message-input"
+          placeholder="메시지를 입력하세요..."
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <button className="message-send-button" type="submit">
           <svg
             width="16"
             height="17"
@@ -38,7 +58,7 @@ function MessageInput() {
           </svg>
         </button>
       </div>
-    </div>
+    </form>
   );
 }
 
