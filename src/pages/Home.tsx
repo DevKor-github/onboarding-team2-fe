@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { socket } from '../utils/socket';
 import { ChatRoomType } from '../types/chatRoomType';
 
@@ -8,11 +8,34 @@ import Header from '../components/Header/Header';
 import Topbar from '../components/Topbar/Topbar';
 
 // Dummy
-import chatroomDummy from '../utils/chatroomDummy.json';
-
-const chatrooms = chatroomDummy as ChatRoomType[];
+import { useGetChatRooms } from '../api/hooks/chatrooms';
 
 function Home() {
+  const [chatrooms, setChatrooms] = useState<ChatRoomType[]>();
+  const { mutate: mutateGetChatRooms } = useGetChatRooms();
+
+  useEffect(() => {
+    mutateGetChatRooms(
+      {
+        limit: 1,
+        offset: 1,
+      },
+      {
+        onSuccess: (data) => {
+          const chatrooms = data.data;
+          console.log(chatrooms);
+          const rooms = chatrooms.map((room) => ({
+            roomId: room.roomId,
+            name: room.name,
+            lastMsgSent: '오후 8:00',
+          }));
+
+          setChatrooms(rooms);
+        },
+      }
+    );
+  }, [mutateGetChatRooms]);
+
   useEffect(() => {
     socket.emit('joinRoom', {
       roomId: '66c9631893b6fce3a7e54090',
@@ -26,14 +49,15 @@ function Home() {
       <Header start={<p>채팅</p>} />
       <div className="flex-shrink-0 divider" />
       <div className="chatroom-scroll">
-        {chatrooms.map((room) => (
-          <ChatRoom
-            key={room.roomId}
-            roomId={room.roomId}
-            name={room.name}
-            time={room.lastMsgSent}
-          />
-        ))}
+        {chatrooms &&
+          chatrooms.map((room) => (
+            <ChatRoom
+              key={room.roomId}
+              roomId={room.roomId}
+              name={room.name}
+              time={room.lastMsgSent}
+            />
+          ))}
       </div>
     </div>
   );
