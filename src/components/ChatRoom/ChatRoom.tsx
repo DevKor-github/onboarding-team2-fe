@@ -14,7 +14,7 @@ function ChatRoom({ roomId, name, time }: chatRoomProps) {
   return (
     <div
       className="flex justify-between items-center flex-shrink-0 shadow-bottom self-stretch chatroom"
-      onClick={() => navigate(`/chat/${roomId}`)}
+      onClick={() => navigate(`/chat/${roomId}`, { state: { name } })}
     >
       <Profile name={name} />
       <p className="chat-time">{time}</p>

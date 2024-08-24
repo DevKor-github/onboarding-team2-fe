@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { socket } from '../utils/socket';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { selfChatData, otherChatData } from '../types/chatData';
 
 /* Components */
@@ -17,12 +17,19 @@ import chatDummy from '../utils/chatDummy.json';
 const dummy = chatDummy as (selfChatData | otherChatData)[];
 
 function Chat() {
+  const location = useLocation();
   const chatRef = useRef<HTMLDivElement | null>(null); // 채팅 스크롤
   const { roomId } = useParams<{ roomId: string }>(); // 현재 채팅방 roomId 가져오기
+  const { name } = location.state || {};
 
   const [chats, setChats] = useState<(selfChatData | otherChatData)[]>(dummy);
 
   useEffect(() => {
+    socket.emit('joinRoom', {
+      roomId,
+      userId: localStorage.getItem('_id')!,
+    });
+
     socket.on('MessageSend', (data) => {
       if (data.senderId != localStorage.getItem('_id')) {
         const chat = {
@@ -92,10 +99,7 @@ function Chat() {
   return (
     <div className="flex flex-col h-screen">
       <Topbar />
-      <Header
-        start={<Profile name="원하진" />}
-        end={<MdMoreHoriz size={16} />}
-      />
+      <Header start={<Profile name={name} />} end={<MdMoreHoriz size={16} />} />
       <div className="flex-1 overflow-hidden message-container">
         <div
           className="flex flex-col-reverse h-full overflow-y-auto"
