@@ -1,4 +1,4 @@
-export interface selfChatData {
+export interface selfChatType {
   self: boolean;
   chats: {
     message: string;
@@ -7,7 +7,7 @@ export interface selfChatData {
   }[];
 }
 
-export interface otherChatData {
+export interface otherChatType {
   self: boolean;
   chats: {
     name: string;

@@ -7,7 +7,7 @@
  * @param passwordConfirm
  * @param tags
  */
-export interface RegisterForm {
+export interface RegisterFormType {
   userId: string;
   username: string;
   password: string;

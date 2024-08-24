@@ -3,7 +3,7 @@
  * @param name
  * @param lastMsgSent
  */
-export interface ChatRoomData {
+export interface ChatRoomType {
   roomId: string;
   name: string;
   lastMsgSent: string;

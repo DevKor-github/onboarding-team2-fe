@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useLogin } from '../api/hooks/auth';
-import { LoginForm } from '../types/loginForm';
+import { LoginFormType } from '../types/loginFormType';
 
 /* Components */
 import FormButton from '../components/FormButton/FormButton';
@@ -27,7 +27,7 @@ function Login() {
     handleSubmit,
     formState: { errors },
     getValues,
-  } = useForm<LoginForm>({ mode: 'onChange' });
+  } = useForm<LoginFormType>({ mode: 'onChange' });
 
   return (
     <form className="container" onSubmit={handleSubmit(submitLogin)}>

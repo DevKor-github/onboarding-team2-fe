@@ -4,7 +4,7 @@
  * @param userId
  * @param password
  */
-export interface LoginForm {
+export interface LoginFormType {
   userId: string;
   password: string;
 }

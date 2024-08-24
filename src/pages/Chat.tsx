@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { socket } from '../utils/socket';
 import { useLocation, useParams } from 'react-router-dom';
-import { selfChatData, otherChatData } from '../types/chatData';
+import { selfChatType, otherChatType } from '../types/chatType';
 
 /* Components */
 import MessageBubbleOther from '../components/MessageBubble/MessageBubbleOther';
@@ -14,7 +14,7 @@ import { MdMoreHoriz } from 'react-icons/md';
 
 // Dummy
 import chatDummy from '../utils/chatDummy.json';
-const dummy = chatDummy as (selfChatData | otherChatData)[];
+const dummy = chatDummy as (selfChatType | otherChatType)[];
 
 function Chat() {
   const location = useLocation();
@@ -22,7 +22,7 @@ function Chat() {
   const { roomId } = useParams<{ roomId: string }>(); // 현재 채팅방 roomId 가져오기
   const { name } = location.state || {};
 
-  const [chats, setChats] = useState<(selfChatData | otherChatData)[]>(dummy);
+  const [chats, setChats] = useState<(selfChatType | otherChatType)[]>(dummy);
 
   useEffect(() => {
     socket.emit('joinRoom', {
@@ -49,11 +49,11 @@ function Chat() {
               ...lastChat,
               chats: [chat, ...lastChat.chats],
             };
-            updatedChats[0] = updatedFirstChat as otherChatData;
+            updatedChats[0] = updatedFirstChat as otherChatType;
             return updatedChats;
           } else {
             // 최신 메시지가 상대방이 보낸 메시지일 때
-            const newChat: otherChatData = {
+            const newChat: otherChatType = {
               self: false,
               chats: [chat],
             };
@@ -83,11 +83,11 @@ function Chat() {
           ...lastChat,
           chats: [chat, ...lastChat.chats],
         };
-        updatedChats[0] = updatedFirstChat as selfChatData;
+        updatedChats[0] = updatedFirstChat as selfChatType;
         return updatedChats;
       } else {
         // 최신 메시지가 상대방이 보낸 메시지일 때
-        const newChat: selfChatData = {
+        const newChat: selfChatType = {
           self: true,
           chats: [chat],
         };
@@ -118,13 +118,13 @@ function Chat() {
                     key={idx}
                     message={message.message}
                     time={message.time}
-                    isRead={(message as selfChatData['chats'][0]).isRead}
+                    isRead={(message as selfChatType['chats'][0]).isRead}
                   />
                 ) : (
                   <MessageBubbleOther
                     key={idx}
                     message={message.message}
-                    name={(message as otherChatData['chats'][0]).name}
+                    name={(message as otherChatType['chats'][0]).name}
                     time={message.time}
                   />
                 )

@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useRegister } from '../api/hooks/auth';
-import { RegisterForm } from '../types/registerForm';
+import { RegisterFormType } from '../types/registerFormType';
 
 /* Components */
 import FormButton from '../components/FormButton/FormButton';
@@ -39,7 +39,7 @@ function Register() {
     handleSubmit,
     formState: { errors },
     getValues,
-  } = useForm<RegisterForm>({ mode: 'onChange' });
+  } = useForm<RegisterFormType>({ mode: 'onChange' });
 
   return (
     <form className="container" onSubmit={handleSubmit(submitRegister)}>

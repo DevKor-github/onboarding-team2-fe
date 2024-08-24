@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { socket } from '../utils/socket';
-import { ChatRoomData } from '../types/chatRoomData';
+import { ChatRoomType } from '../types/chatRoomType';
 
 /* Components */
 import ChatRoom from '../components/ChatRoom/ChatRoom';
@@ -10,7 +10,7 @@ import Topbar from '../components/Topbar/Topbar';
 // Dummy
 import chatroomDummy from '../utils/chatroomDummy.json';
 
-const chatrooms = chatroomDummy as ChatRoomData[];
+const chatrooms = chatroomDummy as ChatRoomType[];
 
 function Home() {
   useEffect(() => {
