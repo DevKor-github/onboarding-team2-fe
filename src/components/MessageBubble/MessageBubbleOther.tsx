@@ -15,7 +15,7 @@ function MessageBubbleOther({ message, name, time }: MessageBubbleSelfProps) {
       <img src={tip} className="bubble-tip" />
       <div className="message-bubble">
         <p className="sender-name">{name}</p>
-        <p className="message-text">{message}</p>
+        <p className="message-text self-start">{message}</p>
         <div className="message-time">
           <p>{time}</p>
         </div>
