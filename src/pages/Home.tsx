@@ -23,7 +23,6 @@ function Home() {
       {
         onSuccess: (data) => {
           const chatrooms = data.data;
-          console.log(chatrooms);
           const rooms = chatrooms.map((room) => ({
             roomId: room.roomId,
             name: room.name,

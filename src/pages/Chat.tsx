@@ -14,6 +14,7 @@ import { MdMoreHoriz } from 'react-icons/md';
 
 // Dummy
 import chatDummy from '../utils/chatDummy.json';
+import { formatDate, getCurTime } from '../utils/timeFormat';
 const dummy = chatDummy as (selfChatType | otherChatType)[];
 
 function Chat() {
@@ -31,11 +32,12 @@ function Chat() {
     });
 
     socket.on('MessageSend', (data) => {
+      console.log(data);
       if (data.senderId != localStorage.getItem('_id')) {
         const chat = {
-          name: '원하진',
+          name: data.senderName,
           message: data.message,
-          time: '오후 8:00',
+          time: formatDate(data.createdAt),
         };
 
         // 상대가 보낸 메시지 리스트에 추가
@@ -65,7 +67,7 @@ function Chat() {
   }, [socket]);
 
   const sendMessage = (message: string) => {
-    const chat = { message, time: '오후 8:00', isRead: false };
+    const chat = { message, time: formatDate(getCurTime()), isRead: false };
 
     socket.emit('sendMessage', {
       roomId: roomId,
