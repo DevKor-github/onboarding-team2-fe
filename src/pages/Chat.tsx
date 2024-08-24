@@ -23,23 +23,49 @@ function Chat() {
   const [chats, setChats] = useState<(selfChatData | otherChatData)[]>(dummy);
 
   useEffect(() => {
-    socket.emit('joinRoom', {
-      roomId: { roomId },
-      userId: localStorage.getItem('_id')!,
-    });
-
     socket.on('MessageSend', (data) => {
-      console.log(data);
-    });
+      if (data.senderId != localStorage.getItem('_id')) {
+        const chat = {
+          name: '원하진',
+          message: data.message,
+          time: '오후 8:00',
+        };
 
-    if (chatRef.current) {
-      chatRef.current.scrollTop = chatRef.current.scrollHeight;
-    }
-  }, []);
+        // 상대가 보낸 메시지 리스트에 추가
+        setChats((prevChats) => {
+          const lastChat = prevChats[0];
+
+          if (lastChat && !lastChat.self) {
+            // 최신 메시지가 상대가 보낸 메시지일 때
+            const updatedChats = [...prevChats];
+            const updatedFirstChat = {
+              ...lastChat,
+              chats: [chat, ...lastChat.chats],
+            };
+            updatedChats[0] = updatedFirstChat as otherChatData;
+            return updatedChats;
+          } else {
+            // 최신 메시지가 상대방이 보낸 메시지일 때
+            const newChat: otherChatData = {
+              self: false,
+              chats: [chat],
+            };
+            return [newChat, ...prevChats];
+          }
+        });
+      }
+    });
+  }, [socket]);
 
   const sendMessage = (message: string) => {
     const chat = { message, time: '오후 8:00', isRead: false };
 
+    socket.emit('sendMessage', {
+      roomId: roomId,
+      message: message,
+    });
+
+    // 내가 보낸 메시지 리스트에 추가
     setChats((prevChats) => {
       const lastChat = prevChats[0];
 

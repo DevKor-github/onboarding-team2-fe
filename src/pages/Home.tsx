@@ -15,7 +15,7 @@ const chatrooms = chatroomDummy as ChatRoomData[];
 function Home() {
   useEffect(() => {
     socket.emit('joinRoom', {
-      roomId: '66c045da1dbb6222e6c753f9',
+      roomId: '66c9631893b6fce3a7e54090',
       userId: localStorage.getItem('_id')!,
     });
   }, [socket]);
