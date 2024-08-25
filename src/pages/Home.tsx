@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { socket } from '../utils/socket';
 import { ChatRoomType } from '../types/chatRoomType';
 import { useGetChatRooms } from '../api/hooks/chatrooms';
 import { formatDate } from '../utils/timeFormat';
@@ -34,13 +33,6 @@ function Home() {
       }
     );
   }, [mutateGetChatRooms]);
-
-  useEffect(() => {
-    socket.emit('joinRoom', {
-      roomId: '66c9631893b6fce3a7e54090',
-      userId: localStorage.getItem('_id')!,
-    });
-  }, [socket]);
 
   return (
     <div className="flex flex-col h-screen">
