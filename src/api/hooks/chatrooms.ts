@@ -1,6 +1,10 @@
 import { useMutation } from '@tanstack/react-query';
 import { apiInterface } from '../../utils/customAxios';
-import { getChatRoomsRequest, getChatRoomsResponse } from '../types/chatrooms';
+import {
+  createNewChatRequest,
+  getChatRoomsRequest,
+  getChatRoomsResponse,
+} from '../types/chatrooms';
 
 const getChatRooms = async ({ limit, offset }: getChatRoomsRequest) => {
   const response = await apiInterface.get<getChatRoomsResponse[]>(
@@ -21,5 +25,31 @@ export const useGetChatRooms = () => {
     onSuccess: () => {
       console.log('/chat/room/total-chat success');
     },
+  });
+};
+
+const createNewChat = async ({ name, tags }: createNewChatRequest) => {
+  const response = await apiInterface.post(
+    `/chat/create-chat`,
+    {
+      creator: localStorage.getItem('_id'),
+      isGroup: false,
+      name,
+      tags,
+    },
+    {
+      headers: {
+        Authorization: localStorage.getItem('accessToken'),
+      },
+    }
+  );
+
+  return response.data;
+};
+
+export const useCreateNewChat = () => {
+  return useMutation({
+    mutationFn: createNewChat,
+    onSuccess: (_) => console.log('Created new chatroom'),
   });
 };

@@ -7,6 +7,7 @@ import Home from '../pages/Home';
 import Chat from '../pages/Chat';
 import Account from '../pages/account/Account';
 import ResetPassword from '../pages/account/ResetPassword';
+import NewChat from '../pages/NewChat';
 
 const routes: RouteObject[] = [
   {
@@ -15,6 +16,7 @@ const routes: RouteObject[] = [
       { path: '/', element: <Login /> },
       { path: '/register', element: <Register /> },
       { path: '/home', element: <Home /> },
+      { path: '/home/new-chat', element: <NewChat /> },
       { path: '/chat/:roomId', element: <Chat /> },
       { path: '/account', element: <Account /> },
       { path: '/account/resetPassword', element: <ResetPassword /> },

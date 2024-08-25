@@ -10,3 +10,8 @@ export interface getChatRoomsResponse {
   size: number;
   lastMsgSent: string;
 }
+
+export interface createNewChatRequest {
+  name: string;
+  tags: string[];
+}

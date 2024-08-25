@@ -44,7 +44,7 @@ function Register() {
   return (
     <form className="container" onSubmit={handleSubmit(submitRegister)}>
       <div className="logo-container">
-        <Logo />
+        <Logo size={'large'} />
       </div>
       <p className="form-label">회원가입</p>
       <div className="input-container">

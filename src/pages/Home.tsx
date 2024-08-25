@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 import { socket } from '../utils/socket';
 import { ChatRoomType } from '../types/chatRoomType';
 import { useGetChatRooms } from '../api/hooks/chatrooms';
+import { formatDate } from '../utils/timeFormat';
 
 /* Components */
 import ChatRoom from '../components/ChatRoom/ChatRoom';
 import Header from '../components/Header/Header';
 import Topbar from '../components/Topbar/Topbar';
-import NewChat from '../components/NewChat/NewChat';
-import { formatDate } from '../utils/timeFormat';
+import NewChatButton from '../components/NewChat/NewChatButton';
 
 function Home() {
   const [chatrooms, setChatrooms] = useState<ChatRoomType[]>();
@@ -57,7 +57,7 @@ function Home() {
               time={room.lastMsgSent}
             />
           ))}
-        <NewChat />
+        <NewChatButton />
       </div>
     </div>
   );
