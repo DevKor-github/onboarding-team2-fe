@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react';
 import { socket } from '../utils/socket';
 import { ChatRoomType } from '../types/chatRoomType';
+import { useGetChatRooms } from '../api/hooks/chatrooms';
 
 /* Components */
 import ChatRoom from '../components/ChatRoom/ChatRoom';
 import Header from '../components/Header/Header';
 import Topbar from '../components/Topbar/Topbar';
-
-// Dummy
-import { useGetChatRooms } from '../api/hooks/chatrooms';
 
 function Home() {
   const [chatrooms, setChatrooms] = useState<ChatRoomType[]>();

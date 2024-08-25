@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { socket } from '../utils/socket';
 import { useLocation, useParams } from 'react-router-dom';
 import { selfChatType, otherChatType } from '../types/chatType';
+import { formatDate, getCurTime } from '../utils/timeFormat';
+import { useGetChats } from '../api/hooks/chats';
 
 /* Components */
 import MessageBubbleOther from '../components/MessageBubble/MessageBubbleOther';
@@ -11,9 +13,6 @@ import Topbar from '../components/Topbar/Topbar';
 import Profile from '../components/Profile/Profile';
 import Header from '../components/Header/Header';
 import { MdMoreHoriz } from 'react-icons/md';
-
-import { formatDate, getCurTime } from '../utils/timeFormat';
-import { useGetChats } from '../api/hooks/chats';
 
 function Chat() {
   // 채팅방 이름 상태 받아오기
