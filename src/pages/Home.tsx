@@ -7,6 +7,7 @@ import { useGetChatRooms } from '../api/hooks/chatrooms';
 import ChatRoom from '../components/ChatRoom/ChatRoom';
 import Header from '../components/Header/Header';
 import Topbar from '../components/Topbar/Topbar';
+import NewChat from '../components/NewChat/NewChat';
 
 function Home() {
   const [chatrooms, setChatrooms] = useState<ChatRoomType[]>();
@@ -45,7 +46,7 @@ function Home() {
       <Topbar />
       <Header start={<p>채팅</p>} />
       <div className="flex-shrink-0 divider" />
-      <div className="chatroom-scroll">
+      <div className="chatroom-scroll flex flex-col h-full">
         {chatrooms &&
           chatrooms.map((room) => (
             <ChatRoom
@@ -55,6 +56,7 @@ function Home() {
               time={room.lastMsgSent}
             />
           ))}
+        <NewChat />
       </div>
     </div>
   );
