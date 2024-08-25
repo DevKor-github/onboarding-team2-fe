@@ -8,6 +8,7 @@ import ChatRoom from '../components/ChatRoom/ChatRoom';
 import Header from '../components/Header/Header';
 import Topbar from '../components/Topbar/Topbar';
 import NewChat from '../components/NewChat/NewChat';
+import { formatDate } from '../utils/timeFormat';
 
 function Home() {
   const [chatrooms, setChatrooms] = useState<ChatRoomType[]>();
@@ -16,8 +17,8 @@ function Home() {
   useEffect(() => {
     mutateGetChatRooms(
       {
-        limit: 1,
-        offset: 1,
+        limit: 10,
+        offset: 0,
       },
       {
         onSuccess: (data) => {
@@ -25,7 +26,7 @@ function Home() {
           const rooms = chatrooms.map((room) => ({
             roomId: room.roomId,
             name: room.name,
-            lastMsgSent: '오후 8:00',
+            lastMsgSent: formatDate(room.lastMsgSent),
           }));
 
           setChatrooms(rooms);

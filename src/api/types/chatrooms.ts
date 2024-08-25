@@ -8,4 +8,5 @@ export interface getChatRoomsResponse {
   name: string;
   tags: string[];
   size: number;
+  lastMsgSent: string;
 }

@@ -4,7 +4,7 @@ import { getChatRoomsRequest, getChatRoomsResponse } from '../types/chatrooms';
 
 const getChatRooms = async ({ limit, offset }: getChatRoomsRequest) => {
   const response = await apiInterface.get<getChatRoomsResponse[]>(
-    `/chat/room/total-chat?limit=${limit}&offset=${offset}`,
+    `/chat/room/total-chat/${offset}&${limit}`,
     {
       headers: {
         Authorization: localStorage.getItem('accessToken'),
